@@ -1,0 +1,3 @@
+add_library(high_level_controller_unit_test high_level_controller_unit_test.cpp)
+
+add_dependencies(high_level_controller_unit_test googletest)
