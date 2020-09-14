@@ -1,5 +1,2 @@
-high_level_controller/CMake*
-high_level_controller/CMake/
-high_level_controller/cmake*
-high_level_controller/high_level_controller
-high_level_controller/Make*
+build/
+test/build/
