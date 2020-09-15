@@ -4,5 +4,6 @@ This repository is an implementation of longitudinal control system to be deploy
 
 Pre-requisite
 
-GoogleTest
-Follow the procedure to install the google test library.
+Git Submodule - GoogleTest
+
+
