@@ -3,5 +3,8 @@
 
 TEST(Constructor, GivenAnObject_ExpectFalse)
 {
-    EXPECT_TRUE(true);
+    Controller unit{};
+    bool result{unit.success};
+
+    EXPECT_TRUE(result);
 }

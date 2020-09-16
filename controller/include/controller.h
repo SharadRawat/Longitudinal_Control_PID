@@ -5,6 +5,12 @@
 
 class Controller : public IController
 {
+    public:
+        Controller(){success = true;}
+        ~Controller(){};
+        
+    // private:
+    bool success{false};
 
 };
 
