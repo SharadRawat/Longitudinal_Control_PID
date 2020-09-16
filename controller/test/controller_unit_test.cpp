@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "include/high_level_controller.h"
+#include "include/controller.h"
 
 TEST(Constructor, GivenAnObject_ExpectFalse)
 {

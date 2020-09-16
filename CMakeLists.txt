@@ -15,4 +15,4 @@ set(SOURCES longitudinal_control_pid.cpp)
 
 add_library(longitudinal_control_pid ${SOURCES})
 
-add_subdirectory(high_level_controller)
+add_subdirectory(controller)
