@@ -6,6 +6,8 @@
 class Controller : public IController
 {
 public:
+    using ParamType = std::tuple<double, double, double>;
+
     Controller(double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity, double sensor_velocity);
     ~Controller();
 

@@ -17,7 +17,7 @@ void Controller::CalculateControlOutput()
     control_output_ = error_;
 }
 
-ParamType Controller::GetParams()
+Controller::ParamType Controller::GetParams()
 {
     return std::make_tuple(proportional_gain_, intergral_gain_, derivative_gain_);
 }

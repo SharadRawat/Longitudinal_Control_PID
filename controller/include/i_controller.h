@@ -3,8 +3,6 @@
 
 #include <tuple>
 
-using ParamType = std::tuple<double, double, double>;
-
 class IController
 {
 public:
