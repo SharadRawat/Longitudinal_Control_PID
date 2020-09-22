@@ -3,7 +3,7 @@
 
 #include <tuple>
 
-using ParamType = std::tuple<uint64_t, uint64_t, int64_t>;
+using ParamType = std::tuple<double, double, double>;
 
 class IController
 {

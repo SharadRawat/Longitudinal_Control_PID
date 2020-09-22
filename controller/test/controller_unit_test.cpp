@@ -3,12 +3,13 @@
 
 TEST(Constructor, GivenAnObject_ExpectFalse)
 {
-    uint64_t Kp{};
-    uint64_t Kd{};
-    uint64_t Ki{};
-    Controller unit{Kp, Kd, Ki};
+    double Kp{15.26};
+    double Kd{110.8};
+    double Ki{0.04};
+    Controller unit{Ki, Kd, Kp};
+    auto [proportional_gain, integral_gain, derivative_gain] = unit.GetParams();
 
-    auto params = unit.GetParams();
-
-    EXPECT_EQ(std::get<0>(params), Kp);
+    EXPECT_EQ(proportional_gain, Kp);
+    EXPECT_EQ(derivative_gain, Kd);
+    EXPECT_EQ(integral_gain, Ki);
 }
