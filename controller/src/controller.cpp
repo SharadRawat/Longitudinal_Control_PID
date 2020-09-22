@@ -9,6 +9,14 @@ void Controller::CalculateError()
     error_ = referenced_velocity_ - sensor_velocity_;
 }
 
+void Controller::CalculateControlOutput()
+{
+    CalculateError();
+
+    // TODO This will the main PID algorithm, to be written. Below code is incorrect.
+    control_output_ = error_;
+}
+
 ParamType Controller::GetParams()
 {
     return std::make_tuple(proportional_gain_, intergral_gain_, derivative_gain_);
@@ -17,4 +25,9 @@ ParamType Controller::GetParams()
 double Controller::GetError()
 {
     return error_;
+}
+
+double Controller::GetControlOutput()
+{
+    return control_output_;
 }

@@ -11,9 +11,13 @@ public:
 
     void CalculateError() override;
 
+    void CalculateControlOutput() override;
+
     ParamType GetParams();
 
     double GetError();
+
+    double GetControlOutput();
 
 private:
     double error_{};
@@ -22,6 +26,7 @@ private:
     double proportional_gain_{};
     double referenced_velocity_{};
     double sensor_velocity_{};
+    double control_output_{};
 };
 
 #endif /* CONTROLLER_CONTROLLER_H */

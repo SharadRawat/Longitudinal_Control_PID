@@ -11,6 +11,8 @@ public:
     virtual ~IController(){};
 
     virtual void CalculateError() = 0;
+
+    virtual void CalculateControlOutput() = 0;
 };
 
 #endif /* I_CONTROLLER_CONTROLLER_H */
