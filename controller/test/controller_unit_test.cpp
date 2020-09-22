@@ -3,8 +3,12 @@
 
 TEST(Constructor, GivenAnObject_ExpectFalse)
 {
-    Controller unit{};
-    bool result{unit.success};
+    uint64_t Kp{};
+    uint64_t Kd{};
+    uint64_t Ki{};
+    Controller unit{Kp, Kd, Ki};
 
-    EXPECT_TRUE(result);
+    auto params = unit.GetParams();
+
+    EXPECT_EQ(std::get<0>(params), Kp);
 }

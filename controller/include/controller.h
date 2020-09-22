@@ -5,13 +5,17 @@
 
 class Controller : public IController
 {
-    public:
-        Controller(){success = true;}
-        ~Controller(){};
-        
-    // private:
-    bool success{false};
+public:
+    Controller(uint64_t intergral_gain, uint64_t derivative_gain, uint64_t proportional_gain);
+    ~Controller();
 
+    ParamType GetParams() override;
+
+private:
+    uint64_t error_{};
+    uint64_t intergral_gain_{};
+    uint64_t derivative_gain_{};
+    uint64_t proportional_gain_{};
 };
 
 #endif /* CONTROLLER_CONTROLLER_H */
