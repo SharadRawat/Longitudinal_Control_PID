@@ -10,7 +10,7 @@ class IController
 public:
     virtual ~IController(){};
 
-    virtual ParamType GetParams() = 0;
+    virtual void CalculateError() = 0;
 };
 
 #endif /* I_CONTROLLER_CONTROLLER_H */
