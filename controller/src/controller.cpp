@@ -1,12 +1,13 @@
 #include "include/controller.h"
 #include <cmath>
 
-Controller::Controller(double delta_time, double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity, double sensor_velocity) : delta_time_(delta_time), intergral_gain_(intergral_gain), derivative_gain_(derivative_gain), proportional_gain_(proportional_gain), referenced_velocity_(referenced_velocity), sensor_velocity_(sensor_velocity) {}
+Controller::Controller(double delta_time, double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity) : delta_time_(delta_time), intergral_gain_(intergral_gain), derivative_gain_(derivative_gain), proportional_gain_(proportional_gain), referenced_velocity_(referenced_velocity){}
 
 Controller::~Controller() {}
 
-void Controller::CalculateError()
-{
+void Controller::CalculateError(double sensor_velocity)
+{   
+    sensor_velocity_ = sensor_velocity;
     error_ = referenced_velocity_ - sensor_velocity_;
 }
 
@@ -21,15 +22,14 @@ double Controller::GetDeltaError()
     return delta_error;
 }
 
-void Controller::CalculateControlOutput()
+void Controller::CalculateControlOutput(double sensor_velocity)
 {
-    CalculateError();
+    CalculateError(sensor_velocity);
     AccumulateError();
 
     auto [kp, ki, kd] = GetParams();
-    auto velocity = kd * GetDeltaError() + ki * accumulated_error_ + kp * error_;
+    control_output_ = kd * GetDeltaError() + ki * accumulated_error_ + kp * error_;
 
-    control_output_ = velocity;
     previous_cycle_error_ = error_;
 }
 

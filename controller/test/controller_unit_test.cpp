@@ -17,7 +17,7 @@ TEST(Constructor, GivenAnObject_ExpectFalse)
     double delta_time{0.10};
 
     // When
-    Controller unit{delta_time, Ki, Kd, Kp, ref_vel, sensed_vel};
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
 
     // Then
     auto [proportional_gain, integral_gain, derivative_gain] = unit.GetParams();
@@ -38,10 +38,10 @@ TEST(CalculateError, GivenReferenceVelocityAndSensedVelocity_ExpectCorrectError)
     double delta_time{0.10};
     double expected_error{-0.2};
     
-    Controller unit{delta_time, Ki, Kd, Kp, ref_vel, sensed_vel};
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
 
     // When
-    unit.CalculateError();
+    unit.CalculateError(sensed_vel);
 
     // Then
     auto error{unit.GetError()};
@@ -60,8 +60,8 @@ TEST(AccumulateError, GivenReferenceVelocityAndSensedVelocity_ExpectCorrectError
     double delta_time{0.10};
     double expected_error{-0.4};
     
-    Controller unit{delta_time, Ki, Kd, Kp, ref_vel, sensed_vel};
-    unit.CalculateError();
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
+    unit.CalculateError(sensed_vel);
 
     // When
     unit.AccumulateError();
@@ -84,8 +84,8 @@ TEST(GetDeltaError, GivenReferenceVelocityAndSensedVelocity_ExpectCorrectError)
     double delta_time{0.10};
     double expected_error{-2.0};
     
-    Controller unit{delta_time, Ki, Kd, Kp, ref_vel, sensed_vel};
-    unit.CalculateError();
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
+    unit.CalculateError(sensed_vel);
 
     // When
     auto error{unit.GetDeltaError()};
@@ -105,10 +105,10 @@ TEST(CalculateControlOutput, GivenParamsAndError_ExpectCorrectControlOutput)
     double delta_time{0.10};
     double expected_result{-61};
     
-    Controller unit{delta_time, Ki, Kd, Kp, ref_vel, sensed_vel};
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
 
     // Whendd
-    unit.CalculateControlOutput();
+    unit.CalculateControlOutput(sensed_vel);
 
     // Given
     auto result{unit.GetControlOutput()};

@@ -8,16 +8,16 @@ class Controller : public IController
 public:
     using ParamType = std::tuple<double, double, double>;
 
-    Controller(double delta_time, double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity, double sensor_velocity);
+    Controller(double delta_time, double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity);
     ~Controller();
 
-    void CalculateError() override;
+    void CalculateError(double sensor_velocity) override;
 
     void AccumulateError() override;
 
     double GetDeltaError() override;
 
-    void CalculateControlOutput() override;
+    void CalculateControlOutput(double sensor_velocity) override;
 
     ParamType GetParams();
 
