@@ -13,7 +13,8 @@ void Controller::CalculateControlOutput()
 {
     CalculateError();
 
-    // TODO This will the main PID algorithm, to be written. Below code is incorrect.
+    // TODO This will the main PID algorithm, to be written. Below code is incorrect. Also depend on sampling frequency of sensor.
+
     control_output_ = error_;
 }
 
