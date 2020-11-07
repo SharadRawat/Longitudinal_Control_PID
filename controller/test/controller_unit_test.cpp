@@ -107,11 +107,41 @@ TEST(CalculateControlOutput, GivenParamsAndError_ExpectCorrectControlOutput)
     
     Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
 
-    // Whendd
+    // When
     unit.CalculateControlOutput(sensed_vel);
 
     // Given
     auto result{unit.GetControlOutput()};
 
     EXPECT_NEAR(result, expected_result, tolerance);
+}
+
+TEST(CalculateControlOutputAgain, GivenParams_ExpectCorrectControlOutput)
+{
+    // Given
+    double Kp{10};
+    double Kd{5};
+    double Ki{1};
+    double ref_vel{40};
+    double sensed_vel{41};
+    double delta_time{0.10};
+    double expected_result{-61};
+    
+    Controller unit{delta_time, Ki, Kd, Kp, ref_vel};
+
+    // When
+    unit.CalculateControlOutput(sensed_vel);
+
+    // Given
+    auto result{unit.GetControlOutput()};
+    std::cout << result << std::endl;
+
+    auto error{unit.GetError()};
+    std::cout << error << std::endl;
+
+    unit.CalculateControlOutput(sensed_vel + error);
+    auto error1{unit.GetError()};
+    std::cout << error1 << std::endl;
+
+    EXPECT_NEAR(error1, 0, tolerance);
 }
