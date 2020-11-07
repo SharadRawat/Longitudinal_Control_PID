@@ -10,6 +10,10 @@ public:
 
     virtual void CalculateError() = 0;
 
+    virtual void AccumulateError() = 0;
+
+    virtual double GetDeltaError() = 0;
+
     virtual void CalculateControlOutput() = 0;
 };
 
