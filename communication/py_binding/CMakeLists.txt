@@ -7,7 +7,7 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 set(ThisBinding py_binding)
 
 find_package(Python REQUIRED COMPONENTS Development)
-find_package(Boost 1.67.0 COMPONENTS python38 REQUIRED python) 
+find_package(Boost 1.67.0 COMPONENTS REQUIRED python) 
 
 include_directories(${Boost_INCLUDE_DIRS}) 
 add_library(${ThisBinding} SHARED MODULE py_binding.cpp)
