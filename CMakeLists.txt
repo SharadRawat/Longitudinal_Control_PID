@@ -11,8 +11,13 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 enable_testing()
 add_subdirectory(googletest)
 
-set(SOURCES longitudinal_control_pid.cpp) 
+file(GLOB SOURCES 
+    src/*.cpp
+)
 
 add_library(longitudinal_control_pid ${SOURCES})
 
-add_subdirectory(controller)
+target_include_directories(longitudinal_control_pid PUBLIC ./)
+
+add_subdirectory(test)
+

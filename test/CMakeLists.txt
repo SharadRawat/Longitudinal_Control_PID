@@ -9,7 +9,7 @@ add_executable(${ThisTest} ${Sources})
 
 target_link_libraries(${ThisTest} PUBLIC
                     gtest_main
-                    controller
+                    longitudinal_control_pid
 )
 
 add_test(
