@@ -8,6 +8,8 @@ class Controller : public IController
 public:
     using ParamType = std::tuple<double, double, double>;
 
+
+    Controller(){};
     Controller(double delta_time, double intergral_gain, double derivative_gain, double proportional_gain, double referenced_velocity);
     ~Controller();
 
