@@ -10,6 +10,6 @@ Pre-requisite
 TODO: 
 TO run the python `arduino_connection_usb`, 
 1. Build the c++ code. 
-2. `make` in the build dir.
+2. `$ make` in the build dir.
 3. Run the python script.
 
