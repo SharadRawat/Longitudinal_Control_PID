@@ -24,4 +24,4 @@ add_library(longitudinal_control_pid ${SOURCES})
 target_include_directories(longitudinal_control_pid PUBLIC ./)
 
 add_subdirectory(test)
-add_subdirectory(communication)
+add_subdirectory(py_bindings)

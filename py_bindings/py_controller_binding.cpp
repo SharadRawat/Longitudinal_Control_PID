@@ -1,8 +1,7 @@
 #include <boost/python.hpp>
 #include "include/controller.h"
 
-
-BOOST_PYTHON_MODULE(py_binding)
+BOOST_PYTHON_MODULE(py_controller_binding)
 {
     using namespace boost::python;
 
